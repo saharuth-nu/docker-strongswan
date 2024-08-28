@@ -9,9 +9,9 @@ if [ "$1" = "1" ]; then
 elif [ "$1" = "2" ]; then
   docker volume create strongswan-data
 elif [ "$1" = "3" ]; then
-  docker run --platform linux/amd64 -v strongswan-data:/data griffinplus/strongswan init --ca-pass="yCkU588n3pFMYY9*" --ca-key-type="rsa4096" --server-key-type="rsa3072" --client-key-type="rsa3072" --ca-cert-subject="CN=VPN Root CA,OU=IT Department,O=Kwisatz Corp,C=TH" --server-cert-subject="CN=vpn.kwisatz.com,OU=Network Operations,O=Kwisatz Corp,C=TH" --client-cert-subject="CN=Saharuth Nuallaong,OU=Engineering,O=Kwisatz Corp,C=TH"
+  docker run --platform="linux/amd64" -v strongswan-data:/data griffinplus/strongswan init --ca-pass="yCkU588n3pFMYY9*" --ca-key-type="rsa4096" --server-key-type="rsa3072" --client-key-type="rsa3072" --ca-cert-subject="CN=VPN Root CA,OU=IT Department,O=Kwisatz Corp,C=TH" --server-cert-subject="CN=vpn.kwisatz.com,OU=Network Operations,O=Kwisatz Corp,C=TH" --client-cert-subject="CN=Saharuth Nuallaong,OU=Engineering,O=Kwisatz Corp,C=TH"
 elif [ "$1" = "4" ]; then
-  docker run -it --platform linux/amd64 \
+  docker run -it --platform="linux/amd64" \
   --name strongswan-vpn \
   --ip6=2001:db8::2 \
   --network internet \
