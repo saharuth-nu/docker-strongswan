@@ -9,7 +9,7 @@ if [ "$1" = "1" ]; then
 elif [ "$1" = "2" ]; then
   docker volume create strongswan-data
 elif [ "$1" = "3" ]; then
-  docker run --platform linux/amd64 \
+  docker run \
   -v strongswan-data:/data \
   griffinplus/strongswan \
   init \
